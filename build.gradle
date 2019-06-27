@@ -1,0 +1,38 @@
+buildscript {
+	ext {
+		springBootVersion = '2.1.0.RELEASE'
+	}
+	repositories {
+        maven {
+			name "aliyunmaven"
+			url "http://maven.aliyun.com/nexus/content/groups/public/"
+		}
+		mavenCentral()
+	}
+
+
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+
+dependencies {
+	compile group: 'commons-beanutils', name: 'commons-beanutils', version: '1.9.3'
+    compile group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.14.2'
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.1.6.RELEASE'
+	compile group: 'org.projectlombok', name: 'lombok', version: '1.18.8'
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis', version: '2.1.6.RELEASE'
+	compile group: 'org.apache.commons', name: 'commons-pool2', version: '2.6.2'
+	implementation('org.springframework.boot:spring-boot-starter')
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
+}
